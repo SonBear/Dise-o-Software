@@ -6,33 +6,20 @@
 package utilidades;
 
 import ficheros.Asignatura;
-import java.io.File;
 import java.util.ArrayList;
 
 /**
  *
- * @author emman
+ * @author SonBear
  */
-public class AccesoArchivoAsignaturas extends AccesoArchivo {
+public class AccesoArchivoAsignaturas extends AccesoArchivo<Asignatura> {
 
-    public AccesoArchivoAsignaturas(File archivo) {
-        super(archivo);
+    public AccesoArchivoAsignaturas() {
+        super("asignaturas");
     }
 
     @Override
-    public void imprimirArchivo() {
-        System.out.println("---------------Lista   Asignatura--------------------");
-
-        for (int i = 0; i < leerArchivo().size(); i++) {
-            String variables[] = leerArchivo().get(i).split(",");
-            System.out.println(String.format("%-2d %10s %10s %10s", i + 1, variables[0], variables[1], variables[2]));
-        }
-
-        System.out.println("-------------------------------------------\n");
-    }
-
-    @Override
-    public <T> ArrayList<T> obtenerObjectos() {
+    public ArrayList<Asignatura> obtenerObjetos() {
         ArrayList<String> datos = leerArchivo();
         ArrayList<Asignatura> asignaturas = new ArrayList<>();
         for (int i = 0; i < datos.size(); i++) {
@@ -40,7 +27,7 @@ public class AccesoArchivoAsignaturas extends AccesoArchivo {
             Asignatura unaAsignatura = new Asignatura(variables[0], variables[1], variables[2]);
             asignaturas.add(unaAsignatura);
         }
-        return (ArrayList<T>) asignaturas;
+        return asignaturas;
     }
 
 }

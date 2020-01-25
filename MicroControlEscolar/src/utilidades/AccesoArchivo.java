@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -18,14 +17,14 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author emman
+ * @author SonBear
  */
-public abstract class AccesoArchivo {
+public abstract class AccesoArchivo<T> {
 
     private File archivo;
 
-    public AccesoArchivo(File archivo) {
-        this.archivo = archivo;
+    public AccesoArchivo(String nombre) {
+        this.archivo = new File("archivos\\" + nombre + ".cvs");
         if (!archivo.exists()) {
             try {
                 archivo.createNewFile();
@@ -49,7 +48,6 @@ public abstract class AccesoArchivo {
             BufferedWriter bw = new BufferedWriter(escribirArchivo);
             Scanner leerArchivo = new Scanner(getArchivo());
             while (leerArchivo.hasNext()) {
-
                 if (leerArchivo.nextLine().equals(data)) {
                     return;
                 }
@@ -81,10 +79,6 @@ public abstract class AccesoArchivo {
         return lista;
     }
 
-    public abstract void imprimirArchivo();
-
-    public abstract <T> ArrayList<T> obtenerObjectos();
-
     public void limpiarArchivo() {
         try {
             FileWriter escribirArchivo = new FileWriter(getArchivo().getAbsoluteFile(), false);
@@ -98,7 +92,7 @@ public abstract class AccesoArchivo {
         }
     }
 
-    public <T> void reescribirArchivo(ArrayList<T> array) {
+    public void reescribirArchivo(ArrayList<T> array) {
 
         limpiarArchivo();
         for (int i = 0; i < array.size(); i++) {
@@ -106,4 +100,6 @@ public abstract class AccesoArchivo {
         }
 
     }
+
+    public abstract ArrayList<T> obtenerObjetos();
 }

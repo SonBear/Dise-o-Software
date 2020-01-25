@@ -7,7 +7,7 @@ package ficheros;
 
 /**
  *
- * @author emman
+ * @author SonBear
  */
 public class Asignatura {
 

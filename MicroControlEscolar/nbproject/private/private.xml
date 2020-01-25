@@ -3,19 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/src/utilidades/AccesoArchivoAlumnos.java</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/archivos/cursos.cvs</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/archivos/maestros.cvs</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/archivos/asignaturas.cvs</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/src/utilidades/AccesoArchivoMaestros.java</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/src/utilidades/AccesoArchivoClases.java</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/archivos/alumnos.cvs</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/archivos/clase.cvs</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/src/utilidades/AccesoArchivo.java</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/src/utilidades/AccesoArchivoAsignaturas.java</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/src/principal/Main2.java</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/src/utilidades/AccesoArchivoCursos.java</file>
-            <file>file:/C:/Users/emman/Documents/NetBeansProjects/MicroControlEscolar/src/controlEscolar/ControlEscolar.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/principal/Main2.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/ficheros/Maestro.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/utilidades/AccesoArchivo.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/ficheros/Asignatura.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/archivos/cursos.cvs</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/utilidades/AccesoArchivoAsignaturas.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/utilidades/AccesoArchivoMaestros.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/vista/Interfaz.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/utilidades/AccesoArchivoClases.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/controlEscolar/Clase.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/controlEscolar/Curso.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/utilidades/GeneradorPdf.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/controlEscolar/ControlEscolar.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/ficheros/Alumno.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/utilidades/AccesoArchivoAlumnos.java</file>
+            <file>file:/C:/Users/emman/Desktop/Diseño%20de%20Software/PROGRAMAS/MicroControlEscolar/src/utilidades/AccesoArchivoCursos.java</file>
         </group>
     </open-files>
 </project-private>

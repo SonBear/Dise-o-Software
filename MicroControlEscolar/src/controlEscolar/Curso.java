@@ -7,40 +7,20 @@ package controlEscolar;
 
 import ficheros.Alumno;
 import java.util.ArrayList;
+import utilidades.AccesoArchivoCursos;
 
 /**
  *
- * @author emman
+ * @author SonBear
  */
 public class Curso {
 
     private Clase clase;
     private ArrayList<Alumno> listaAlumnosInscritos;
 
-    public Curso(Clase clase, ArrayList<Alumno> listaAlumnosInscritos) {
+    public Curso(Clase clase, AccesoArchivoCursos archivo) {
         this.clase = clase;
-        this.listaAlumnosInscritos = alumnosInscritos(listaAlumnosInscritos);
-    }
-
-    public void imprimirLita() {
-        System.out.println(clase.getAsignatura());
-        System.out.println(clase.getAsignatura());
-        for (int i = 0; i < listaAlumnosInscritos.size(); i++) {
-            System.out.println((i + 1) + ".- " + listaAlumnosInscritos.get(i));
-        }
-    }
-
-    public ArrayList<Alumno> alumnosInscritos(ArrayList<Alumno> alumnos) {
-        ArrayList<Alumno> alumnosInscritos = new ArrayList();
-        for (int i = 0; i < alumnos.size(); i++) {
-            for (int j = 0; j < alumnos.get(i).getClases().size(); j++) {
-                if (alumnos.get(i).getClases().get(j).equals(clase)) {
-                    alumnosInscritos.add(alumnos.get(i));
-                }
-            }
-        }
-
-        return alumnosInscritos;
+        this.listaAlumnosInscritos = obtenerAlumnosInscritos(archivo);
     }
 
     public Clase getClase() {
@@ -57,6 +37,18 @@ public class Curso {
 
     public void setListaAlumnosInscritos(ArrayList<Alumno> listaAlumnosInscritos) {
         this.listaAlumnosInscritos = listaAlumnosInscritos;
+    }
+
+    private ArrayList<Alumno> obtenerAlumnosInscritos(AccesoArchivoCursos archivoCurso) {
+        ArrayList<Alumno> alumnosInscritos = new ArrayList<>();
+        for (int i = 0; i < archivoCurso.leerArchivo().size(); i++) {
+            String datos[] = archivoCurso.leerArchivo().get(i).split(",");
+            String clase = datos[3] + "," + datos[4];
+            if (clase.equals(this.clase.toString())) {
+                alumnosInscritos.add(new Alumno(Integer.parseInt(datos[0]), datos[1], datos[2]));
+            }
+        }
+        return alumnosInscritos;
     }
 
 }

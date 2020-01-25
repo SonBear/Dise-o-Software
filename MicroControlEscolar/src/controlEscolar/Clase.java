@@ -9,7 +9,7 @@ import ficheros.*;
 
 /**
  *
- * @author emman
+ * @author SonBear
  */
 public class Clase {
 
