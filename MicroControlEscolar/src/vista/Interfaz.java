@@ -19,8 +19,11 @@ public class Interfaz {
         System.out.println("4. Generar Clase(Maestro-Asignatura");
         System.out.println("5. Seleccion clase a alumno(Maestro-Asignatura-Alumno");
         System.out.println("6. Imprimir Cursos Con Alumnos");
-        System.out.println("7. ");
-        System.out.println("8. Generar Lista en PDF de un curso");
+//        System.out.println("7. Eliminar Alumno");
+//        System.out.println("8. Eliminar Maestro");
+//        System.out.println("9. Eliminar Asignatura");
+//        System.out.println("10. Eliminar Curso");
+        System.out.println("7. Generar Lista en PDF de un curso");
         System.out.print("-Ingrese Opcion:  ");
     }
 

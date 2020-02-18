@@ -34,14 +34,6 @@ public abstract class AccesoArchivo<T> {
         }
     }
 
-    public File getArchivo() {
-        return archivo;
-    }
-
-    public void setArchivo(File archivo) {
-        this.archivo = archivo;
-    }
-
     public void agregarContenido(String data) {
         try {
             FileWriter escribirArchivo = new FileWriter(getArchivo().getAbsoluteFile(), true);
@@ -83,7 +75,6 @@ public abstract class AccesoArchivo<T> {
         try {
             FileWriter escribirArchivo = new FileWriter(getArchivo().getAbsoluteFile(), false);
             BufferedWriter bw = new BufferedWriter(escribirArchivo);
-            Scanner leerArchivo = new Scanner(getArchivo());
             bw.write("");
             bw.close();
             escribirArchivo.close();
@@ -99,6 +90,14 @@ public abstract class AccesoArchivo<T> {
             agregarContenido(array.get(i).toString());
         }
 
+    }
+
+    public File getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(File archivo) {
+        this.archivo = archivo;
     }
 
     public abstract ArrayList<T> obtenerObjetos();

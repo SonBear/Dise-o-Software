@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlEscolar;
 
 import ficheros.Alumno;
@@ -57,7 +52,7 @@ public class ControlEscolar {
         do {
             menu.imprimirInterfaz();
             op = leerOP.nextInt();
-            actualizarArrays();
+            actualizar();
             switch (op) {
                 case 1:
                     ingresarAlumno();
@@ -78,16 +73,36 @@ public class ControlEscolar {
                     imprimirCursosConAlumnos();
                     break;
                 case 7:
-                    break;
-                case 8:
+
                     generarPdfCurso();
                     break;
+                case 8:
+                    eliminarAlumno();
+                    break;
+                case 9:
+                    eliminarMaestro();
                 default:
                     System.out.println("No existe esa opcion");
                     ;
             }
-            limpiarArrays();
+            reescribirArchivos();
         } while (op != 0);
+    }
+
+    public void eliminarAlumno() {
+        Scanner leerOp = new Scanner(System.in);
+        imprimirListaAlumnos();
+        System.out.print("Ingrese el numero del alumnos a eliminar: ");
+        int op = leerOp.nextInt() - 1;
+        listaAlumnos.remove(op);
+    }
+
+    public void eliminarMaestro() {
+        Scanner leerOp = new Scanner(System.in);
+        imprimirListaMaestros();
+        System.out.println("- Ingrese el numeero del maestro a eliminar: ");
+        int op = leerOp.nextInt() - 1;
+        listaMaestros.remove(op);
     }
 
     public void ingresarAlumno() {
@@ -102,7 +117,7 @@ public class ControlEscolar {
             System.out.print("Apellido: ");
             String apellido = leerStr.next();
             Alumno unAlumno = new Alumno(matricula, nombre, apellido);
-            accesoAlumno.agregarContenido(unAlumno.toString());
+            listaAlumnos.add(unAlumno);
         } catch (InputMismatchException ex) {
             System.out.println("Error al ingresar la matricula");
         }
@@ -121,7 +136,8 @@ public class ControlEscolar {
             String nombreM = leerStr.next();
             System.out.print("Apellido: ");
             String apellidoM = leerStr.next();
-            accesoMaestro.agregarContenido(new Maestro(clave, nombreM, apellidoM).toString());
+            Maestro unMaestro = new Maestro(clave, nombreM, apellidoM);
+            listaMaestros.add(unMaestro);
         } catch (InputMismatchException ex) {
             System.out.println("Error al ingresar clave");
         }
@@ -139,7 +155,7 @@ public class ControlEscolar {
         System.out.print("Nombre: ");
         String nombreA = leerStr.nextLine();
         Asignatura unaAsignatura = new Asignatura(claveA, licenciatura, nombreA);
-        accesoAsignatura.agregarContenido(unaAsignatura.toString());
+        listaAsignaturas.add(unaAsignatura);
     }
 
     public void crearClase() {
@@ -153,7 +169,7 @@ public class ControlEscolar {
             System.out.print("Elige el numero de asignatura: ");
             int asignatura = leerOp.nextInt() - 1;
             Clase unaClase = new Clase(listaMaestros.get(maestro), listaAsignaturas.get(asignatura));
-            accesoClase.agregarContenido(unaClase.toString());
+            listaClases.add(unaClase);
         } catch (IndexOutOfBoundsException ex) {
             System.out.println("Error al seleccionar");
         }
@@ -170,7 +186,9 @@ public class ControlEscolar {
             imprimirClases();
             System.out.println("Ingrese el numero de maestro: ");
             int clase = leerOp.nextInt() - 1;
-            accesoCurso.agregarContenido(listaAlumnos.get(alumno).toString() + "," + listaClases.get(clase).toString());
+            Curso unCurso = new Curso(listaClases.get(clase), accesoCurso);
+            unCurso.getListaAlumnosInscritos().add(listaAlumnos.get(alumno));
+            listaCursos.add(unCurso);
         } catch (IndexOutOfBoundsException ex) {
             System.out.println("Error al seleccionar");
         }
@@ -242,7 +260,7 @@ public class ControlEscolar {
         System.out.println("------------------------------------------");
     }
 
-    public void actualizarArrays() {
+    public void actualizar() {
         listaAlumnos = accesoAlumno.obtenerObjetos();
         listaMaestros = accesoMaestro.obtenerObjetos();
         listaAsignaturas = accesoAsignatura.obtenerObjetos();
@@ -253,12 +271,15 @@ public class ControlEscolar {
         listaCursos = accesoCurso.obtenerObjetos();
     }
 
-    public void limpiarArrays() {
-        listaAlumnos.clear();
-        listaMaestros.clear();
-        listaAsignaturas.clear();
-        listaClases.clear();
-        listaCursos.clear();
+    public void reescribirArchivos() {
+        accesoAlumno.reescribirArchivo(listaAlumnos);
+        accesoAsignatura.reescribirArchivo(listaAsignaturas);
+        accesoMaestro.reescribirArchivo(listaMaestros);
+        accesoClase.setListaAsignatura(listaAsignaturas);
+        accesoClase.setListaMaestro(listaMaestros);
+        listaClases = accesoClase.obtenerObjetos();
+        accesoClase.reescribirArchivo(listaClases);
+        accesoCurso.reescribirArchivoCursos(listaCursos);
     }
 
     private void imprimirListaAsignaturas() {
