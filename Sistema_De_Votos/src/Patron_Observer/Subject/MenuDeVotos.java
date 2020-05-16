@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vista;
+package Patron_Observer.Subject;
 
 import javax.swing.JButton;
 
@@ -16,8 +16,12 @@ public class MenuDeVotos extends javax.swing.JFrame {
     /**
      * Creates new form MenuDeVotos
      */
+    //Este es el observado
+    private SistemaVotos sistemaVotos = new SistemaVotos();
+
     public MenuDeVotos() {
         initComponents();
+
     }
 
     /**
@@ -94,6 +98,14 @@ public class MenuDeVotos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public SistemaVotos getSistemaVotos() {
+        return sistemaVotos;
+    }
+
+    public void setSistemaVotos(SistemaVotos sistemaVotos) {
+        this.sistemaVotos = sistemaVotos;
+    }
+
     public JButton getVotar1() {
         return votar1;
     }
@@ -114,4 +126,5 @@ public class MenuDeVotos extends javax.swing.JFrame {
     private javax.swing.JButton votar2;
     private javax.swing.JButton votar3;
     // End of variables declaration//GEN-END:variables
+
 }
